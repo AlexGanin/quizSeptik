@@ -1,0 +1,442 @@
+@import '~bootstrap/scss/bootstrap';
+//<МИКСИНЫ>===============================================================================================
+//</МИКСИНЫ>===============================================================================================
+@import "mixins";
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+//&subset=cyrillic-ext
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap&subset=cyrillic-ext");
+//400,500,700
+@import "fonts";
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "Fira Sans";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1152;
+$maxWidthContainer: 492 + 32 + 20;
+//$maxWidthContainer: 1092 + 30;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+$md5: 379.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null";
+body {
+	color: #2e2e2e;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 120%;
+	font-style: normal;
+	&._lock {
+		overflow: hidden;
+	}
+}
+html,body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	//min-height: 100%;
+	//overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	/*&._loaded {
+	}*/
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	@media (max-width: $md1+px) {
+		max-width: 750px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+//@import "lightgallery";
+//@import "pagging";
+@import "popup";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	padding: 0px 0px 0px 0px;
+	flex: 1 1 auto;
+	padding: 0 10px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	/*@media (max-width: $md3+px) {
+		padding: 30px 0px 0px 0px;
+	}*/
+}
+//===================================================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+.c-green {
+	color: #7bbb4c;
+}
+
+.c-blue {
+	color: #63bae8;
+}
+
+.d-none {
+	display: none;
+}
+
+.title-1   {
+	font-size: 28px;
+	font-weight: 400;
+	line-height: 125%;
+}
+
+.title-2 {
+	 font-size: 25px;
+	 font-weight: 400;
+	 line-height: 125%;
+}
+
+.steps {
+	text-align: center;
+	margin-bottom: 50px;
+
+	&__container {
+		display: inline-flex;
+		align-items: center;
+		padding: 0 15px;
+		margin: 50px 0 25px 0;
+		height: 40px;
+		border: 2px solid #63BAE8;
+		box-sizing: border-box;
+		border-radius: 33px;
+		max-width: 100%;
+	}
+	
+	&__step {
+		width: 126px;
+		height: 20px;
+		border-radius: 10px;
+		transform: matrix(1, 0, 0, -1, 0, 0);
+		background: #EDEDED;
+		&.current {
+			background: linear-gradient(267.16deg, #63BAE8 7.68%, #9EDDFF 53.18%, #63BAE8 90.4%);
+		}
+		&.active {
+			background: #63BAE8;
+		}
+	}
+
+	&__step:not(:last-child) {
+		margin: 0 27px 0 0;
+	}
+
+	&__num-question {
+
+		font-weight: bold;
+		font-size: 22px;
+		line-height: 26px;
+		color: #2E2E2E;
+
+		& span {
+			color: #63bae8;
+		}
+	}
+}
+
+.step1 {
+
+	margin-bottom: 50px;
+
+	&__title {
+		display: flex;
+		align-items: center;
+		flex: 1 1 auto;
+		align-self: center;
+		font-weight: 700;
+		margin: 0 0 15px 0;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 40px 0 0 0;
+	}
+
+	&__list > *, &__input {
+		margin-bottom: 31px;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		max-width: 246px;
+		height: 235px;
+		background: #FFFFFF;
+		border: 1px solid #63BAE8;
+		box-sizing: border-box;
+		box-shadow: 0px 25px 30px -20px rgba(0, 0, 0, 0.15);
+		border-radius: 10px;
+		flex: 1 1 47.126%;
+		cursor: pointer;
+	}
+
+	&__item-title {
+		display: flex;
+		align-items: center;
+		flex: 1 1 auto;
+		align-self: center;
+	}
+	
+	&__img {
+		width: 100%;
+		padding: 0 0 154px 0;
+		position: relative;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__checkbox {
+		position: relative;
+		z-index: 50;
+		width: 40px;
+		height: 40px;
+		background: url(../img/checkbox.svg) no-repeat center center;
+		margin: -20px auto -20px auto;
+	}
+
+	&__item.active .step1__checkbox {
+		background: url(../img/checkbox-active.svg);
+	}
+	
+	&__input {
+		display: block;
+		width: 100%;
+		height: 70px;
+		color: #2E2E2E;
+		//background: #FFFFFF;
+		border: 1px solid #63BAE8;
+		box-sizing: border-box;
+		box-shadow: 0px 25px 30px -20px rgba(0, 0, 0, 0.15);
+		border-radius: 10px;
+		padding: 0 0 0 80px;
+		font-size: 18px;
+		background-color: #FFFFFF;
+		background-repeat: no-repeat;
+		background-position: 15px center;
+		background-image: url(../img/checkbox.svg);
+		&.active {
+			background-image: url(../img/checkbox-active.svg);
+		}
+		&::-webkit-input-placeholder {color: #2E2E2E;}
+		&::-moz-placeholder {color: #2E2E2E;}
+
+		@media (max-width: $md5+px) {
+			background-position: 7px center;
+			padding: 0 0 0 55px;
+			font-size: 16px;
+		}
+		
+	}
+
+	&__button {
+		width: 196px;
+		height: 50px;
+	}
+}
+
+.step2 {
+	text-align: center;
+	
+	&__title {
+		font-weight: 700;
+	}
+
+	&__text {
+		font-weight: 500;
+	}
+
+	&__form {
+		max-width: 288px;
+		margin: 45px auto 70px auto;
+	}
+
+	&__form > *:not(:last-child) {
+		margin-bottom: 18px;
+	}
+
+	&__input {
+		width: 100%;
+	}
+
+	&__button {
+		width: 100%;
+	}
+}
+
+.progress-ring {
+	margin: 30px auto 42px auto;
+	&__circle {
+		transform-origin: center;
+		transform: rotate(-90deg);
+		transition: storke-dashoffset 0.3s;
+		//stroke-dasharray: 10 20;
+		//stroke-dashoffset: 100;
+	}
+
+	&__percent {
+		font-weight: 700;
+		font-size: 28px;
+		fill: #7bbb4c;
+	}
+}
+
+.banner {
+	position: relative;
+
+	&.active {
+		animation-name: banner;
+		animation-duration: 1s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	}
+	
+	&__body {
+		max-width: 1092px;
+		width: 100%;
+		height: 500px;
+		background: #FFFFFF;
+		box-shadow: 0px 7px 33px rgba(0, 0, 0, 0.25);
+		border-radius: 10px 10px 0px 0px;
+		margin: 0 auto -250px auto;
+		padding: 55px 0 55px 0;
+		@media (max-width: $md3+px) {
+			padding: 25px 0 25px 0;
+			margin: -25px auto -200px auto;
+		}
+	}
+	
+	&__block {
+		display: flex;
+		background: #63BAE8;
+		align-items: center;
+		text-align: center;
+		width: 82.967%;
+		margin: 0 auto;
+		padding: 0 20px 0 0;
+		height: 65px;
+		border-radius: 10px;
+		font-weight: bold;
+		font-size: 26px;
+		line-height: 119%;
+		color: #FFFFFF;
+		@media (max-width: $md3+px) {
+			width: 90%;
+			height: auto;
+		}
+		@media (max-width: $md4+px) {
+			//font-size: 22px;
+			padding: 0 5px 10px 5px;
+			flex-direction: column;
+		}
+	}
+
+	&__img {
+		margin: 10px 20px 0 36px;
+		@media (max-width: $md4+px) {
+			margin: -25px auto -10px auto;
+		}
+	}
+}
+
+input {
+	height: 50px;
+	background: #FFFFFF;
+	border: 1px solid #D3D3D3;
+	box-sizing: border-box;
+	box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 0 25px;
+	color: #D3D3D3;
+	&::-webkit-input-placeholder {color: #D3D3D3;}
+	&::-moz-placeholder {color: #D3D3D3;}
+}
+
+button {
+	display: flex;
+	background: linear-gradient(180deg, #A1DEFF 0%, #63BAE8 100%);
+	border: 1px solid #AEE3FF;
+	box-sizing: border-box;
+	box-shadow: 0px 3px 0px #0071AD, 0px 19px 20px -11px rgba(99, 186, 232, 0.7);
+	border-radius: 10px;
+	font-size: 18px;
+	line-height: 122.22%;
+	align-items: center;
+	justify-content: center;
+	color: #FFFFFF; 
+	font-weight: 700;
+	height: 50px;
+	padding: 0 16px;
+	&:hover {
+		opacity: 0.9;
+	}
+	&:disabled {
+		background: linear-gradient(180deg, #D3D3D3 0%, #ABABAB 100%);
+		border: 1px solid #DADADA;
+		box-shadow: 0px 3px 0px #AAAAAA, 0px 19px 20px -11px #DADADA;
+	}
+}
+
+
+
+@keyframes banner {
+	0% {
+		top: 0px;
+	}
+	100% {
+		top: 100px;
+	}
+}
